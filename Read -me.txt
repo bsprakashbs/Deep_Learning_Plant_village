@@ -1,0 +1,4 @@
+Model building       - tensor flow, CNN(Convolutional Neural network),data augmentation, tf dataset
+Backend server       - tf server, fast API
+Model optimization   - Quntization, tensor flow lite
+frontend &Deployment - React js ,React Native ,Deployment to GCP
