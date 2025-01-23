@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 #256 ----> 0 to 255 RGB scale
 IMAGE_SIZE=256
 BATCH_SIZE=32
+CHANNELS=3
 dataset = tf.keras.preprocessing.image_dataset_from_directory(
     "PlantVillage",
     shuffle=True,
@@ -67,3 +68,77 @@ data_augmentation = tf.keras.Sequential([
     RandomFlip("horizontal_and_vertical"),
     RandomRotation(0.2)
 ])
+#----------------------------------------conventional neural network.- Convolutional and pooling layer...----------------#
+input_shape=(BATCH_SIZE,IMAGE_SIZE,IMAGE_SIZE,CHANNELS)
+n_classes =3
+model = models.Sequential([
+                            resize_and_rescale,
+                            data_augmentation,
+                            layers.Conv2D(32,(3,3),activation='relu',input_shape =input_shape),
+                            layers.MaxPooling2D((2,2)),
+                            layers.Conv2D(64,kernel_size =(3,3) ,activation='relu'),
+                            layers.MaxPooling2D((2,2)),
+                            layers.Conv2D(64,kernel_size =(3,3) ,activation='relu'),
+                            layers.MaxPooling2D((2,2)),
+                            layers.Conv2D(64,(3,3) ,activation='relu'),
+                            layers.MaxPooling2D((2,2)),
+                            layers.Conv2D(64,(3,3) ,activation='relu'),
+                            layers.MaxPooling2D((2,2)),
+                            layers.Conv2D(64,(3,3) ,activation='relu'),
+                            layers.MaxPooling2D((2,2)),
+                            layers.Flatten(),
+                            layers.Dense(64,activation='relu'),
+                            layers.Dense(n_classes, activation='softmax'),
+                            ])
+model.build(input_shape=input_shape)
+
+print(model.summary())
+
+# compiling  the model
+
+model.compile(
+                optimizer='adam',
+                loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False),
+                metrics=['accuracy']
+             )
+
+######  Checking how model accuracy is getting improved by giving epochs=50  - 50 times it re fit the model by passing different data set and provides the accuracy
+###### cpu - will consume lot
+###### GPU -  it takes less time.
+history = model.fit(
+                    train_ds,
+                    batch_size=BATCH_SIZE,
+                    validation_data=val_ds,
+                    verbose=1,
+                    epochs=2,
+                    )
+
+print(history)
+print(history.params)
+print(history.history.keys())
+print(type(history.history['loss']))
+print(len(history.history['loss']))
+print(len(history.history['accuracy']))
+scores = model.evaluate(test_ds)
+print(scores)
+
+#---------------------------------------- plotting  to see how accuracy is increased..----------------#
+EPOCHS = 20
+acc = history.history['accuracy']
+val_acc = history.history['val_accuracy']
+
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+plt.figure(figsize=(8, 8))
+plt.subplot(1, 2, 1)
+plt.plot(range(EPOCHS), acc, label='Training Accuracy')
+plt.plot(range(EPOCHS), val_acc, label='Validation Accuracy')
+plt.legend(loc='lower right')
+plt.title('Training and Validation Accuracy')
+
+plt.subplot(1, 2, 2)
+plt.plot(range(EPOCHS), loss, label='Training Loss')
+plt.plot(range(EPOCHS), val_loss, label='Validation Loss')
+plt.legend(loc='upper right')
+plt.title('Training and Validation Loss')
+plt.show()
