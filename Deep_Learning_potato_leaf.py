@@ -3,6 +3,7 @@ from tensorflow.keras import models,layers
 from tensorflow.keras.layers import Resizing, RandomFlip, RandomRotation ,Rescaling
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 
 #-----------------------------------------Load Image using TEnsor flow ----------------------------------------#
@@ -108,7 +109,7 @@ model.compile(
 ###### cpu - will consume lot
 ###### GPU -  it takes less time.
 
-EPOCHS = 20
+EPOCHS = 1
 history = model.fit(
                     train_ds,
                     batch_size=BATCH_SIZE,
@@ -186,7 +187,7 @@ for images_batch, labels_batch in test_ds.take(1):
     print("predicted label:", class_names[np.argmax(batch_prediction[0])])
 '''
 
-# ---------------------------------------- Run prediction on a multipel images ..----------------#
+# ---------------------------------------- Run prediction on a multiple images ..----------------#
 def predict(model, img):
     img_array = tf.keras.preprocessing.image.img_to_array(images[i].numpy())
     img_array = tf.expand_dims(img_array, 0)
@@ -206,3 +207,10 @@ def predict(model, img):
             plt.title(f"Actual: {actual_class},\n Predicted: {predicted_class}.\n Confidence: {confidence}%")
             plt.axis("off")
             plt.show()
+
+# ---------------------------------------- save Model ..----------------#
+
+
+model_version=max([int(i) for i in os.listdir("../models") + [0]])+1
+model.save(f"../models/{model_version}")
+model.save("../potatoes.h5")
