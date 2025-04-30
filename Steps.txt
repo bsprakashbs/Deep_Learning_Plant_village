@@ -1,0 +1,20 @@
+1 -->  create a python code to build a model with multiple epochs for accuracy
+2 -->  Save the model with keras format
+3 -->  create a folder 'api'
+4 -->  create a requirement  text file and adda requirement softwares
+5 -->  Go to api folder and execute ' pip install -r requirements.txt'
+6 -->  Create main.py under api folder and write a fast api code to call the model
+7 -->  Execute this command ' uvicorn main:app --reload'  to trigger the main.py
+8 -->  Go to: http://localhost:8000/docs in your browser.
+9 -->  Find the /predict endpoint.
+10-->  Click "Try it out", upload an image file, and click "Execute".
+
+
+fastapi-tf-template/
+│
+├── saved_models/
+│   └── 3.keras                 # Your trained Keras model file
+│
+├── main.py                     # FastAPI app
+├── requirements.txt            # Python dependencies
+└── README.md                   # Instructions

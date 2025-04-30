@@ -109,7 +109,7 @@ model.compile(
 ###### cpu - will consume lot
 ###### GPU -  it takes less time.
 
-EPOCHS = 1
+EPOCHS = 50
 history = model.fit(
                     train_ds,
                     batch_size=BATCH_SIZE,
@@ -208,9 +208,14 @@ def predict(model, img):
             plt.axis("off")
             plt.show()
 
-# ---------------------------------------- save Model ..----------------#
+# ---------------------------------------- save Model and picking the latest model ..----------------#
 
+#os.makedirs("models", exist_ok=True)
+#model_version=max([int(i) for i in os.listdir("../models") + [0]])+1
+model_version=3
 
-model_version=max([int(i) for i in os.listdir("../models") + [0]])+1
-model.save(f"../models/{model_version}")
-model.save("../potatoes.h5")
+#model.export(filepath)
+
+model.save(f"../saved_models/{model_version}.keras")
+#model.save("/Deep_learning_potatoes_models.h5")
+

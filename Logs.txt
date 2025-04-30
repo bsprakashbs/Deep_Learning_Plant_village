@@ -1,0 +1,235 @@
+D:\My Documents\AI\python\AI_ML_PYTHON\.venv\Scripts\python.exe" "D:\My Documents\AI\python\AI_ML_PYTHON\Python_Project\Project\Deep_Learning_Project\Deep_Learning_potato_leaf.py" 
+2025-04-30 13:58:41.654664: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-04-30 13:58:42.576636: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Found 2152 files belonging to 3 classes.
+2025-04-30 13:58:45.105060: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+['Potato___Early_blight', 'Potato___Late_blight', 'Potato___healthy']
+(256, 256, 3)
+(256, 256, 3)
+(256, 256, 3)
+68
+54
+6
+6
+54
+6
+8
+2025-04-30 13:58:45.333924: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+D:\My Documents\AI\python\AI_ML_PYTHON\.venv\Lib\site-packages\keras\src\layers\convolutional\base_conv.py:107: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+Model: "sequential_2"
+┌─────────────────────────────────┬────────────────────────┬───────────────┐
+│ Layer (type)                    │ Output Shape           │       Param # │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ sequential (Sequential)         │ (32, 256, 256, 3)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ sequential_1 (Sequential)       │ (32, 256, 256, 3)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d (Conv2D)                 │ (32, 254, 254, 32)     │           896 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d (MaxPooling2D)    │ (32, 127, 127, 32)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_1 (Conv2D)               │ (32, 125, 125, 64)     │        18,496 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_1 (MaxPooling2D)  │ (32, 62, 62, 64)       │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_2 (Conv2D)               │ (32, 60, 60, 64)       │        36,928 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_2 (MaxPooling2D)  │ (32, 30, 30, 64)       │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_3 (Conv2D)               │ (32, 28, 28, 64)       │        36,928 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_3 (MaxPooling2D)  │ (32, 14, 14, 64)       │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_4 (Conv2D)               │ (32, 12, 12, 64)       │        36,928 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_4 (MaxPooling2D)  │ (32, 6, 6, 64)         │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_5 (Conv2D)               │ (32, 4, 4, 64)         │        36,928 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_5 (MaxPooling2D)  │ (32, 2, 2, 64)         │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ flatten (Flatten)               │ (32, 256)              │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (32, 64)               │        16,448 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_1 (Dense)                 │ (32, 3)                │           195 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 183,747 (717.76 KB)
+ Trainable params: 183,747 (717.76 KB)
+ Non-trainable params: 0 (0.00 B)
+None
+Epoch 1/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 53s 939ms/step - accuracy: 0.4781 - loss: 0.9245 - val_accuracy: 0.5781 - val_loss: 0.8272
+Epoch 2/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 51s 951ms/step - accuracy: 0.6502 - loss: 0.7514 - val_accuracy: 0.7731 - val_loss: 0.5739
+Epoch 3/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 51s 956ms/step - accuracy: 0.8009 - loss: 0.4425 - val_accuracy: 0.8848 - val_loss: 0.2954
+Epoch 4/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 52s 972ms/step - accuracy: 0.8630 - loss: 0.3531 - val_accuracy: 0.8380 - val_loss: 0.3572
+Epoch 5/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 54s 998ms/step - accuracy: 0.9021 - loss: 0.2700 - val_accuracy: 0.8848 - val_loss: 0.2948
+Epoch 6/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 53s 993ms/step - accuracy: 0.9028 - loss: 0.2507 - val_accuracy: 0.9103 - val_loss: 0.2272
+Epoch 7/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 52s 968ms/step - accuracy: 0.9086 - loss: 0.2225 - val_accuracy: 0.9115 - val_loss: 0.2292
+Epoch 8/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 55s 1s/step - accuracy: 0.8783 - loss: 0.2826 - val_accuracy: 0.9219 - val_loss: 0.1826
+Epoch 9/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 53s 991ms/step - accuracy: 0.9113 - loss: 0.2151 - val_accuracy: 0.9144 - val_loss: 0.1995
+Epoch 10/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 54s 1s/step - accuracy: 0.9336 - loss: 0.1663 - val_accuracy: 0.9311 - val_loss: 0.1820
+Epoch 11/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 56s 1s/step - accuracy: 0.9372 - loss: 0.1537 - val_accuracy: 0.9265 - val_loss: 0.1749
+Epoch 12/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 56s 1s/step - accuracy: 0.9468 - loss: 0.1449 - val_accuracy: 0.9525 - val_loss: 0.1156
+Epoch 13/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 57s 1s/step - accuracy: 0.9364 - loss: 0.1615 - val_accuracy: 0.9491 - val_loss: 0.1303
+Epoch 14/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 2059s 39s/step - accuracy: 0.9684 - loss: 0.0856 - val_accuracy: 0.8032 - val_loss: 0.6232
+Epoch 15/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 63s 1s/step - accuracy: 0.9276 - loss: 0.1999 - val_accuracy: 0.9520 - val_loss: 0.1120
+Epoch 16/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 63s 1s/step - accuracy: 0.9608 - loss: 0.1099 - val_accuracy: 0.9450 - val_loss: 0.1429
+Epoch 17/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 59s 1s/step - accuracy: 0.9421 - loss: 0.1557 - val_accuracy: 0.9479 - val_loss: 0.1392
+Epoch 18/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 55s 1s/step - accuracy: 0.9550 - loss: 0.1052 - val_accuracy: 0.9051 - val_loss: 0.2974
+Epoch 19/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 52s 969ms/step - accuracy: 0.9632 - loss: 0.1067 - val_accuracy: 0.8709 - val_loss: 0.4396
+Epoch 20/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 62s 1s/step - accuracy: 0.9636 - loss: 0.0947 - val_accuracy: 0.9236 - val_loss: 0.1969
+Epoch 21/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 66s 1s/step - accuracy: 0.9704 - loss: 0.0731 - val_accuracy: 0.9433 - val_loss: 0.1938
+Epoch 22/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 66s 1s/step - accuracy: 0.9687 - loss: 0.0805 - val_accuracy: 0.9670 - val_loss: 0.0909
+Epoch 23/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 64s 1s/step - accuracy: 0.9718 - loss: 0.0608 - val_accuracy: 0.9722 - val_loss: 0.0783
+Epoch 24/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 62s 1s/step - accuracy: 0.9771 - loss: 0.0594 - val_accuracy: 0.9647 - val_loss: 0.0903
+Epoch 25/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 67s 1s/step - accuracy: 0.9855 - loss: 0.0382 - val_accuracy: 0.9190 - val_loss: 0.2822
+Epoch 26/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 61s 1s/step - accuracy: 0.9834 - loss: 0.0555 - val_accuracy: 0.9363 - val_loss: 0.1716
+Epoch 27/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 61s 1s/step - accuracy: 0.9795 - loss: 0.0526 - val_accuracy: 0.9907 - val_loss: 0.0273
+Epoch 28/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 54s 1s/step - accuracy: 0.9847 - loss: 0.0400 - val_accuracy: 0.9387 - val_loss: 0.1649
+Epoch 29/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 55s 1s/step - accuracy: 0.9716 - loss: 0.0801 - val_accuracy: 0.9821 - val_loss: 0.0465
+Epoch 30/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 54s 997ms/step - accuracy: 0.9903 - loss: 0.0303 - val_accuracy: 0.9549 - val_loss: 0.1342
+Epoch 31/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 54s 998ms/step - accuracy: 0.9941 - loss: 0.0244 - val_accuracy: 0.9688 - val_loss: 0.0768
+Epoch 32/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 70s 1s/step - accuracy: 0.9926 - loss: 0.0224 - val_accuracy: 0.9803 - val_loss: 0.0497
+Epoch 33/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 73s 1s/step - accuracy: 0.9946 - loss: 0.0198 - val_accuracy: 0.9606 - val_loss: 0.1123
+Epoch 34/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 66s 1s/step - accuracy: 0.9815 - loss: 0.0528 - val_accuracy: 0.9844 - val_loss: 0.0420
+Epoch 35/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 56s 1s/step - accuracy: 0.9856 - loss: 0.0367 - val_accuracy: 0.9497 - val_loss: 0.1592
+Epoch 36/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 72s 1s/step - accuracy: 0.9903 - loss: 0.0219 - val_accuracy: 0.9196 - val_loss: 0.3744
+Epoch 37/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 57s 1s/step - accuracy: 0.9868 - loss: 0.0411 - val_accuracy: 0.9745 - val_loss: 0.0718
+Epoch 38/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 61s 1s/step - accuracy: 0.9870 - loss: 0.0439 - val_accuracy: 0.9433 - val_loss: 0.1678
+Epoch 39/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 55s 1s/step - accuracy: 0.9806 - loss: 0.0363 - val_accuracy: 0.9381 - val_loss: 0.1933
+Epoch 40/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 55s 1s/step - accuracy: 0.9798 - loss: 0.0520 - val_accuracy: 0.9844 - val_loss: 0.0433
+Epoch 41/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 54s 997ms/step - accuracy: 0.9906 - loss: 0.0267 - val_accuracy: 0.9705 - val_loss: 0.0794
+Epoch 42/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 53s 993ms/step - accuracy: 0.9904 - loss: 0.0225 - val_accuracy: 0.9878 - val_loss: 0.0399
+Epoch 43/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 54s 995ms/step - accuracy: 0.9873 - loss: 0.0400 - val_accuracy: 0.9497 - val_loss: 0.1489
+Epoch 44/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 54s 1s/step - accuracy: 0.9867 - loss: 0.0359 - val_accuracy: 0.9363 - val_loss: 0.2208
+Epoch 45/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 53s 985ms/step - accuracy: 0.9900 - loss: 0.0222 - val_accuracy: 0.9902 - val_loss: 0.0257
+Epoch 46/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 53s 985ms/step - accuracy: 0.9947 - loss: 0.0127 - val_accuracy: 0.7859 - val_loss: 0.7783
+Epoch 47/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 53s 984ms/step - accuracy: 0.9672 - loss: 0.0910 - val_accuracy: 0.9705 - val_loss: 0.0937
+Epoch 48/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 57s 1s/step - accuracy: 0.9937 - loss: 0.0200 - val_accuracy: 0.9797 - val_loss: 0.0504
+Epoch 49/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 59s 1s/step - accuracy: 0.9953 - loss: 0.0131 - val_accuracy: 0.9288 - val_loss: 0.2371
+Epoch 50/50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 59s 1s/step - accuracy: 0.9766 - loss: 0.0569 - val_accuracy: 0.9844 - val_loss: 0.0468
+<keras.src.callbacks.history.History object at 0x0000021DA4AF3F80>
+{'verbose': 1, 'epochs': 50, 'steps': 54}
+dict_keys(['accuracy', 'loss', 'val_accuracy', 'val_loss'])
+<class 'list'>
+50
+50
+54/54 ━━━━━━━━━━━━━━━━━━━━ 15s 270ms/step - accuracy: 0.9835 - loss: 0.0489
+[0.04683021083474159, 0.984375]
+-----print(acc)-----------
+[0.52083331 0.69386572 0.83449072 0.85243058 0.90277779 0.9056713
+ 0.90162039 0.90393519 0.91030091 0.9375     0.92592591 0.9519676
+ 0.94560188 0.95717591 0.94328701 0.9375     0.94675928 0.96643519
+ 0.9670139  0.96585649 0.97164351 0.96585649 0.97511572 0.97685188
+ 0.984375   0.98032409 0.9837963  0.97685188 0.9826389  0.98668981
+ 0.99247688 0.99074072 0.98900461 0.98206019 0.984375   0.99016201
+ 0.97800928 0.9826389  0.9855324  0.9855324  0.98958331 0.9861111
+ 0.99074072 0.99016201 0.99074072 0.98726851 0.97858799 0.99421299
+ 0.99363428 0.9837963 ]
+-----print(val_acc)-----------
+[0.578125   0.77314812 0.88483799 0.83796299 0.88483799 0.91030091
+ 0.91145831 0.921875   0.91435188 0.93113428 0.92650461 0.9525463
+ 0.94907409 0.80324072 0.9519676  0.94502312 0.94791669 0.9050926
+ 0.87094909 0.9236111  0.94328701 0.9670139  0.97222221 0.96469909
+ 0.91898149 0.9363426  0.99074072 0.9386574  0.98206019 0.9548611
+ 0.96875    0.98032409 0.96064812 0.984375   0.94965279 0.91956019
+ 0.97453701 0.94328701 0.9380787  0.984375   0.9704861  0.98784721
+ 0.94965279 0.9363426  0.99016201 0.78587961 0.9704861  0.97974539
+ 0.92881942 0.984375  ]
+-----print(acc)-----------
+[0.52083331 0.69386572 0.83449072 0.85243058 0.90277779 0.9056713
+ 0.90162039 0.90393519 0.91030091 0.9375     0.92592591 0.9519676
+ 0.94560188 0.95717591 0.94328701 0.9375     0.94675928 0.96643519
+ 0.9670139  0.96585649 0.97164351 0.96585649 0.97511572 0.97685188
+ 0.984375   0.98032409 0.9837963  0.97685188 0.9826389  0.98668981
+ 0.99247688 0.99074072 0.98900461 0.98206019 0.984375   0.99016201
+ 0.97800928 0.9826389  0.9855324  0.9855324  0.98958331 0.9861111
+ 0.99074072 0.99016201 0.99074072 0.98726851 0.97858799 0.99421299
+ 0.99363428 0.9837963 ]
+---------print(val_acc)--------
+[0.578125   0.77314812 0.88483799 0.83796299 0.88483799 0.91030091
+ 0.91145831 0.921875   0.91435188 0.93113428 0.92650461 0.9525463
+ 0.94907409 0.80324072 0.9519676  0.94502312 0.94791669 0.9050926
+ 0.87094909 0.9236111  0.94328701 0.9670139  0.97222221 0.96469909
+ 0.91898149 0.9363426  0.99074072 0.9386574  0.98206019 0.9548611
+ 0.96875    0.98032409 0.96064812 0.984375   0.94965279 0.91956019
+ 0.97453701 0.94328701 0.9380787  0.984375   0.9704861  0.98784721
+ 0.94965279 0.9363426  0.99016201 0.78587961 0.9704861  0.97974539
+ 0.92881942 0.984375  ]
+---------length of plotting acc and val_acc values--------
+acc: [0.52083331 0.69386572 0.83449072 0.85243058 0.90277779 0.9056713
+ 0.90162039 0.90393519 0.91030091 0.9375     0.92592591 0.9519676
+ 0.94560188 0.95717591 0.94328701 0.9375     0.94675928 0.96643519
+ 0.9670139  0.96585649 0.97164351 0.96585649 0.97511572 0.97685188
+ 0.984375   0.98032409 0.9837963  0.97685188 0.9826389  0.98668981
+ 0.99247688 0.99074072 0.98900461 0.98206019 0.984375   0.99016201
+ 0.97800928 0.9826389  0.9855324  0.9855324  0.98958331 0.9861111
+ 0.99074072 0.99016201 0.99074072 0.98726851 0.97858799 0.99421299
+ 0.99363428 0.9837963 ], len: 50
+val_acc: [0.578125   0.77314812 0.88483799 0.83796299 0.88483799 0.91030091
+ 0.91145831 0.921875   0.91435188 0.93113428 0.92650461 0.9525463
+ 0.94907409 0.80324072 0.9519676  0.94502312 0.94791669 0.9050926
+ 0.87094909 0.9236111  0.94328701 0.9670139  0.97222221 0.96469909
+ 0.91898149 0.9363426  0.99074072 0.9386574  0.98206019 0.9548611
+ 0.96875    0.98032409 0.96064812 0.984375   0.94965279 0.91956019
+ 0.97453701 0.94328701 0.9380787  0.984375   0.9704861  0.98784721
+ 0.94965279 0.9363426  0.99016201 0.78587961 0.9704861  0.97974539
+ 0.92881942 0.984375  ], len: 50
+---------worked 1--------
+---------worked 1.1--------
+---------worked 1.2--------
+---------worked 2--------
+
+Process finished with exit code 0
